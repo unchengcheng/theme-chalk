@@ -1,0 +1,114 @@
+@import "../mixins/mixins";
+@import "../common/var";
+@import "../common/zw";
+@import "../mixins/own";
+
+$bg-color: #ffffff;
+$font-color-bold: red;
+$dark: #20c997 !default;
+$member-header-bg :#549EEF;
+@include b(member) {
+    @include remCalc(font-size, 1.6);
+    @include remCalc(padding-bottom, 4);
+    text-align: center;
+    @include b(header) {
+        @include remCalc(height, 16.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: $member-header-bg;
+        background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.40) 100%);
+        @include m(row) {
+            @include remCalc(height, 8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            @include e(col) {
+                @include remCalc(font-size, 1.6);
+                @include remCalc(border-right, (0.1 solid $--border-color-base)); // box-shadow: 1px 0 2px 0 rgba(32,67,106,0.20);
+                flex: 1;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    } //卡片
+    @include b(card) {
+        @include remCalc(margin, 1);
+        @include remCalc(padding, 1);
+        @include remCalc(border-radius, 0.5);
+        border: 1px solid rgba(32, 67, 106, 0.20);
+        display: flex;
+        flex-direction: column;
+
+        @include m(row) {
+            @include remCalc(padding, 1 0);
+            border-bottom: 1px solid $--border-color-base;
+            flex: 0 0 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            &:last-child {
+                border-bottom: none;
+            }
+            @include when (br) {
+                &>* {
+                    flex: 1;
+                    position: relative;
+                    &:last-child:before {
+                        width: 0;
+                        height: 0;
+                    }
+                    &:before {
+                        content: '';
+                        width: 1px;
+                        height: 60%;
+                        background-color: rgba(32,67,106,0.20);
+                        top: 20%;
+                        right: 0;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    } //字体大小及颜色
+    @include b(large) {
+        @include remCalc(font-size, 1.8);
+    }
+    @include b(small) {
+        @include remCalc(font-size, 1.4)
+    }
+    @include b(bold) {
+        font-weight: bold;
+        color: $font-color-bold;
+    }
+    @include b(gray) {
+        color: $dark;
+    } //固定样式
+    @include b(col-lr) {
+        justify-content: space-between;
+        &>*:nth-child(1) {
+            text-align: left;
+        }
+        &>*:nth-child(2) {
+            text-align: right;
+        }
+    } // 底部按钮
+    @include b(footer) {
+        @include remCalc(width, 4);
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        @include m(cont) {
+            color: #fff;
+            @include e(icon) {
+                @include remCalc(width height line-height, 1.8);
+                @include remCalc(background-size, 1.8);
+                background: url() no-repeat center center;
+            }
+        }
+    }
+}

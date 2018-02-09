@@ -1,0 +1,81 @@
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+$enable-gradients : false !default;
+
+$blue : #007bff !default;
+$indigo : #6610f2 !default;
+$purple : #6f42c1 !default;
+$pink : #e83e8c !default;
+$red : #dc3545 !default;
+$orange : #fd7e14 !default;
+$yellow : #ffc107 !default;
+$green : #28a745 !default;
+$teal : #20c997 !default;
+$cyan : #17a2b8 !default;
+
+$primary : $blue !default;
+$secondary : #20c997 !default;
+$success : $green !default;
+$info : $cyan !default;
+$warning : $yellow !default;
+$danger : $red !default;
+$light : #20c997 !default;
+$dark : #20c997 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(( "primary" : $primary,
+"secondary" : $secondary,
+"success" : $success,
+"info" : $info,
+"warning" : $warning,
+"danger" : $danger,
+"light" : $light,
+"dark" : $dark), $theme-colors);
+$alert-bg-level:                    -10 !default;
+$alert-border-level:                -9 !default;
+$alert-color-level:                 6 !default;
+$black:    #000 !default;
+$theme-color-interval:      8% !default;
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+// Request a theme color level
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: theme-color($color-name);
+  $color-base: if($level > 0, $black, $white);
+  $level: abs($level);
+
+  @return mix($color-base, $color, $level * $theme-color-interval);
+}
+
+@mixin gradient-bg($color) {
+    @if $enable-gradients {
+        background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x;
+    }
+    @else {
+        background-color: $color;
+    }
+}
+
+@mixin alert-variant($background, $border, $color) {
+    color: $color;
+    @include gradient-bg($background);
+    border-color: $border;
+
+    hr {
+        border-top-color: darken($border, 5%);
+    }
+
+    .alert-link {
+        color: darken($color, 10%);
+    }
+}
+
+@each $color,$value in $theme-colors {
+    .alert-#{$color} {
+        @include alert-variant(theme-color-level($color, $alert-color-level), theme-color-level($color, $alert-color-level), theme-color-level($color, $alert-color-level));
+    }
+}

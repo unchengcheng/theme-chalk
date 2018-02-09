@@ -1,0 +1,89 @@
+@import "../mixins/mixins";
+@import "../common/var";
+@import "../common/zw";
+@import "../mixins/own";
+
+$bg-color: #fff;
+$font-color-bold: red;
+$dark: #20c997 !default;
+@include b(order) {
+    @include remCalc(font-size padding-bottom, 1.6 4);
+    background-color: $--color-white; // 头部信息 text-decoration: line-through;
+    @include b(header) {
+        @include remCalc(height, 20);
+        background-color: $bg-color;
+        @include m(content) {
+            @include remCalc(height, 16);
+            display: flex;
+            jusitify-content: center;
+            align-items: center;
+            @include e(item) {
+                flex: 0 0 1;
+                @include when(active) {
+                    background-color: $dark;
+                    color: $dark;
+                }
+            }
+        }
+    } //列表 list-item 
+    @include b(list) {
+        @include m(item) {
+            @include e(head) {
+                display: flex;
+                flex-flow: column nowrap;
+            }
+            @include e(cont) {
+                display: flex;
+            }
+            @include e(foot) {}
+        }
+    } //产品
+    @include b(pro) {
+        @include m(icon) {
+            flex: 0 0 8rem;
+        }
+        @include m(des) {
+            display: flex;
+            flex-flow: column nowrap;
+            jusitify-content: space-between;
+        }
+    } //字体大小及颜色
+    @include b(large) {
+        @include remCalc(font-size, 1.8);
+    }
+    @include b(small) {
+        @include remCalc(font-size, 1.4)
+    }
+    @include b(bold) {
+        font-weight: bold;
+        color: $font-color-bold;
+    }
+    @include b(gray) {
+        color: $dark;
+    } //固定样式
+    @include b(col-lr) {
+        &>*:nth-child(1) {
+            text-align: left;
+        }
+        &>*:nth-child(2) {
+            text-align: right;
+        }
+    }
+}
+
+
+// header header-bar header-bar-btn
+// sub-header-bar sub-header-bar > col 
+// toolbar toolbar-title toolbar-content toolbar-title-icon
+// grid grid-item grid-item:selected grid-item:filter
+// list list-item list-item-inner 
+// type-tag
+// count-block
+// list-count-block
+// ion-grid ion-row ion-col 
+// ion-header ion-content ion-footer
+// ion-header ion-navbar ion-title  ion-buttons ion-icon
+// ion-content ion-list ion-item
+//      ion-item-sliding ion-item-options
+//      
+//
