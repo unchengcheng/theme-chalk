@@ -14,7 +14,7 @@ gulp.task('compile', function() {
       browsers: ['ie > 9', 'last 2 versions'],
       cascade: false
     }))
-    // .pipe(cssmin())
+    .pipe(cssmin())
     .pipe(gulp.dest('../../product/doctorwx/src/page/_doctor/'))
     // .pipe(gulp.dest('./lib/zhanwang'))
     .pipe(connect.reload())

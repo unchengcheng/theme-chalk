@@ -6,84 +6,173 @@
 $bg-color: #fff;
 $font-color-bold: red;
 $dark: #20c997 !default;
-@include b(order) {
-    @include remCalc(font-size padding-bottom, 1.6 4);
-    background-color: $--color-white; // 头部信息 text-decoration: line-through;
+$member-header-bg :#549EEF;
+$member-card-inner-bg :#fff;
+@include b(order-list) {
+    @include remCalc(font-size, 1.6);
+    @include remCalc(padding-bottom, 4);
+    text-align: center;
+    padding-bottom: 40px;
+    overflow: scroll;
     @include b(header) {
-        @include remCalc(height, 20);
-        background-color: $bg-color;
-        @include m(content) {
-            @include remCalc(height, 16);
+        background: #FFFFFF;
+        box-shadow: 4px 4px 11px 0 rgba(118, 177, 242, 0.50), inset 0 -1px 0 0 rgba(32, 67, 106, 0.20);
+        line-height: 50px;
+        height: 50px;
+        ul {
             display: flex;
-            jusitify-content: center;
+            justify-content: center;
             align-items: center;
-            @include e(item) {
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 10px;
+            li {
                 flex: 0 0 1;
+                line-height: 30px;
+                width: 100%;
                 @include when(active) {
-                    background-color: $dark;
-                    color: $dark;
+                    &>span {
+                        background-image: linear-gradient(-90deg, #75B0F1 0%, #75D0F1 100%);
+                        box-shadow: 2px 2px 8px 0 rgba(117, 176, 241, 0.60);
+                        border-radius: 100px;
+                        font-family: PingFangSC-Medium;
+                        font-size: 16px;
+                        color: #FFFFFF;
+                        text-shadow: 0 1px 1px rgba(74, 74, 74, 0.60);
+                    }
+                }
+                &:last-child {
+                    width: 30px;
+                    border-left: 1px solid rgba(32, 67, 106, 0.20);
+                    padding: 0 10px;
+                    background: url(http://cdn.gee4.cn/zw-wx/wx-vue-img-v2/img/v2/menu.png) no-repeat center center;
+                    background-size: 28px 20px;
+                    flex: 0 0 40px;
+                }
+                span {
+                    padding: 4px 20px;
+                    line-height: 30px;
+                    font-family: PingFangSC-Medium;
+                    font-size: 16px;
+                    color: rgba(32, 67, 106, 0.40);
                 }
             }
         }
-    } //列表 list-item 
-    @include b(list) {
-        @include m(item) {
-            @include e(head) {
-                display: flex;
-                flex-flow: column nowrap;
-            }
-            @include e(cont) {
-                display: flex;
-            }
-            @include e(foot) {}
+    } //卡片
+    @include b(count) {
+        line-height: 40px;
+        padding: 0 10px;
+        text-align: left;
+        span {
+            padding-left: 0 !important;
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: rgba(14, -2147483648, -2147483648, 0.40);
+            line-height: 17px;
         }
-    } //产品
-    @include b(pro) {
-        @include m(icon) {
-            flex: 0 0 8rem;
-        }
-        @include m(des) {
+    }
+    @include b(card) {
+        @include remCalc(padding,0 1);
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid rgba(32, 67, 106, 0.20);
+        background: #ffffff;
+        box-shadow: inset 0 -1px 0 0 rgba(32, 67, 106, 0.20);
+        font-family: PingFangSC-Medium;
+        font-size: 12px;
+        color: #4A4A4A;
+        text-align: left;
+        padding-top: 10px;
+        @include m(row) {
+            flex: 0 0 1;
             display: flex;
-            flex-flow: column nowrap;
-            jusitify-content: space-between;
+            flex-direction: row;
+            justify-content: space-around;
+            line-height: 18px;
+            &.ul {
+                justify-content: center;
+                padding: 10px 0;
+                img {
+                    width: 66px;
+                    height: 66px;
+                }
+                li:first-child {
+                    flex: 0 0 76px;
+                }
+                li {
+                    flex: 0 0 1;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    &>.p {
+                        flex: 0 0 1;
+                    }
+                    .title {
+                        font-family: PingFangSC-Regular;
+                        font-size: 14px;
+                        color: #4A4A4A;
+                        line-height: 21px;
+                    }
+                    .value {
+                        font-family: PingFangSC-Light;
+                        font-size: 12px;
+                        color: #000000;
+                        letter-spacing: 0;
+                        line-height: 14px;
+                    }
+                }
+            }
+            .icon {
+                background: url(http://cdn.gee4.cn/zw-wx/wx-vue-img-v2/img/v2/bankCard.png) no-repeat left center;
+                background-size: 21px 18px;
+                line-height: 18px;
+                padding-left: 25px;
+            }            
+            .icon2 {
+                background: url(http://cdn.gee4.cn/zw-wx/wx-vue-img-v2/img/v2/members.png) no-repeat left center;
+                background-size: 21px 18px;
+                line-height: 18px;
+                padding-left: 25px;
+            }
         }
+    }
+    .lh30 {
+        line-height: 30px;
+        height: 30px;
+    }
+    .b_t {
+        border-top: 1px dashed #E3E9EC;
+    }
+    .t_r {
+        text-align: right;
+        justify-content: flex-end;
     } //字体大小及颜色
     @include b(large) {
-        @include remCalc(font-size, 1.8);
+        @include remCalc(font-size,
+        1.4);
     }
     @include b(small) {
-        @include remCalc(font-size, 1.4)
+        @include remCalc(font-size,
+        1.2)
     }
     @include b(bold) {
         font-weight: bold;
-        color: $font-color-bold;
+        color: #0E0000 !important;
+    }
+    @include b(l-thr) {
+        text-decoration: line-through
     }
     @include b(gray) {
-        color: $dark;
+        color: #9B9B9B !important;
     } //固定样式
     @include b(col-lr) {
+        justify-content: space-between;
         &>*:nth-child(1) {
             text-align: left;
         }
         &>*:nth-child(2) {
             text-align: right;
         }
-    }
+    } // 底部按钮
 }
-
-
-// header header-bar header-bar-btn
-// sub-header-bar sub-header-bar > col 
-// toolbar toolbar-title toolbar-content toolbar-title-icon
-// grid grid-item grid-item:selected grid-item:filter
-// list list-item list-item-inner 
-// type-tag
-// count-block
-// list-count-block
-// ion-grid ion-row ion-col 
-// ion-header ion-content ion-footer
-// ion-header ion-navbar ion-title  ion-buttons ion-icon
-// ion-content ion-list ion-item
-//      ion-item-sliding ion-item-options
-//      
-//
