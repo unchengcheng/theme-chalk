@@ -4,7 +4,7 @@
 @import "../mixins/own";
 
 $bg-color: #fff;
-$font-color-bold: red;
+$font-color-bold: black;
 $dark: #20c997 !default;
 $member-header-bg :#549EEF;
 $member-card-inner-bg :#fff;
@@ -88,7 +88,7 @@ $member-card-inner-bg :#fff;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            line-height: 18px;
+            line-height: 22px;
             &.ul {
                 justify-content: center;
                 padding: 10px 0;
@@ -125,7 +125,7 @@ $member-card-inner-bg :#fff;
             }
             .icon {
                 background: url(http://cdn.gee4.cn/zw-wx/wx-vue-img-v2/img/v2/bankCard.png) no-repeat left center;
-                background-size: 21px 18px;
+                background-size: 20px 16px;
                 line-height: 18px;
                 padding-left: 25px;
             }            

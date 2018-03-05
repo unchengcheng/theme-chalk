@@ -1,0 +1,79 @@
+
+@import "../mixins/mixins";
+
+@include b(header) {
+	font-size: 16px;
+	@include m(icon) {
+		font-size: 17px;
+		@include e(large) {
+			font-size: 18px;
+		}
+	}
+}
+
+
+//样式模块
+// header container content footer pannel slider menu nav 
+// logo bar banner login img nav bottom top left right center title friendlink link pd 
+
+// 模块分类
+// 样式模块  header footer asider nav main 
+// 
+// 京东、淘宝主页模块 分类
+// 
+// 京东 H5结构
+//  html
+//  	head script(Date) meta link script(date) link script(date) script(all)
+//  	body mhome 
+//  			loading
+//  			download_bannar
+//  			fixedtop 
+//  				search login
+//  			scroll-wrapper
+//  				floor bottom-bar-pannel
+//  				jd-footer
+//  				floor box-enter 
+//  					floor-item
+//  						containner-bg quick-nav-box
+//  							quick-enter-nav
+//  								quick-enter-link
+//  				floor (font-size:0;width:100%)
+//  					floor-container (wh100%;of:hidden;fs0)
+//  						fls-pit
+//  				floor bdr-bottom
+//  					seckill
+//  					seckill-floor
+//  						seckill-slider
+//  							seckill-ul  
+//  								seckill-new-item
+//  						seckill_title
+
+
+// btn btn--big btn--orange
+// btn__price 
+// btn__text	
+// bem ---的逻辑
+// tab  tab-item-title
+// tab-item-content item-head item-plan title;  --
+// risk-result risk-title  risk > ul
+// risk-plan--title risk-plan-list risk-plan-item //  
+//  li
+// 
+// 
+// tabs risk risk-plan 模块
+
+
+// 先确定结构 在进行样式编写
+// tabs tabs__item  tabs__content
+// risk risk__result risk__content
+// risk-plan risk-plan__title risk-plan__item
+
+// page page__head page__footer page__main 
+// info info__base-info info__des info__user-name 
+// slider-main slider__item is-one is-two
+// slider-item__head slider-item__cnt
+// dialog-main   
+// 
+// 
+// 																																																										
+// 																																																																																																																																																																														
